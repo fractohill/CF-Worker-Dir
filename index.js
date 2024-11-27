@@ -2,7 +2,7 @@
  *  自定义网站配置 
  */
 const config = {
-  title: "軌道喵導航",                 //write your website title
+  title: "轨道喵导航",                 //write your website title
   subtitle: "Orbicat.cc", //write your website subtitle
   logo_icon: "safari",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
   hitokoto: true,                     //use hitokoto or not
@@ -183,7 +183,7 @@ function renderHTML(index,seller) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${config.title} - ${config.subtitle}</title>
       <link href="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.css" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/gh/fractohill/cf-worker-dir@t1.0/style.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/gh/fractohill/cf-worker-dir@t1.2/style.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.js"></script>
   </head>
