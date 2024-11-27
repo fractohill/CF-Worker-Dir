@@ -2,33 +2,33 @@
  *  自定义网站配置 
  */
 const config = {
-  title: "自定义导航",                 //write your website title
-  subtitle: "Cloudflare Workers Dir", //write your website subtitle
-  logo_icon: "sitemap",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
+  title: "軌道喵導航",                 //write your website title
+  subtitle: "Orbicat.cc", //write your website subtitle
+  logo_icon: "safari",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
   hitokoto: true,                     //use hitokoto or not
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
     {
-      name:"百 度",
-      template:"https://www.baidu.com/s?wd=$s"
+      name:"必 应",
+      template:"https://www.bing.com/search?q=$s"
     },
     {
       name:"谷 歌",
       template:"https://www.google.com/search?q=$s"
     },
     {
-      name:"必 应",
-      template:"https://www.bing.com/search?q=$s"
-    },
-    {
       name:"搜 狗",
       template:"https://www.sogou.com/web?query=$s"
+    },
+    {
+      name:"百 度",
+      template:"https://www.baidu.com/s?wd=$s"
     }
   ],
-  selling_ads: true,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
+  selling_ads: false,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
   sell_info:{
     domain:"example.com",
-    price:500,                        //domain price
+    price:500000000,                        //domain price
     mon_unit:"yen sign",              //monetary unit 
     contact:[                         //how to contact you
       {
@@ -112,10 +112,10 @@ addEventListener('fetch', event => {
 function getFavicon(url){
   if(url.match(/https{0,1}:\/\//)){
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url.split('//')[1];
-    return "https://www.google.cn/s2/favicons?sz=64&domain_url=" + url;
+    return "https://www.google.com/s2/favicons?sz=64&domain_url=" + url;
   }else{
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
-    return "https://www.google.cn/s2/favicons?sz=64&domain_url=http://" + url;
+    return "https://www.google.com/s2/favicons?sz=64&domain_url=http://" + url;
   } 
 }
 
@@ -124,7 +124,7 @@ function getFavicon(url){
  */
 
 function renderIndex(){
-  const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/sleepwood/cf-worker-dir"','target="_blank"'],el('i',['class="github icon"'],"") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + 'MIT License')));
+  const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/sleepwood/cf-worker-dir"','target="_blank"'],el('i',['class="github icon"'],"") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + 'MIT License') + ' &nbsp;&nbsp;' + el('a',['href="https://icp.gov.moe/?keyword=20241923"','target="_blank"'],'萌ICP备20241923号｜') + el('img', ['src="https://travel.moe/images/icon/icon64.png"', 'alt="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！"', 'style="width:12px;height:12px"'],'') + el('a',['href="https://travel.moe/go.html?travel=on"','target="_blank"'],'异次元之旅')));
   return renderHeader() + renderMain() + footer;
 }
 
@@ -140,7 +140,7 @@ function renderHeader(){
       return item(link.template,link.name);
     }
   }).join(""))
-  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.baidu.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
+  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.bing.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
   return el('header',[],el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],(config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + el('div',['id="title"','class="ui text container"'],title + (config.search ? input + menu :"") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`)))
 }
 
@@ -183,7 +183,7 @@ function renderHTML(index,seller) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${config.title} - ${config.subtitle}</title>
       <link href="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.css" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/gh/fractohill/cf-worker-dir@0.1.1/style.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/gh/fractohill/cf-worker-dir@t1.0/style.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.js"></script>
   </head>
