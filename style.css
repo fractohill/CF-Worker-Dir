@@ -14,7 +14,7 @@ header {
 }
 
 #head {
-  background-image: 'https://raw.githubusercontent.com/fractohill/CF-Worker-Dir/refs/heads/master/wallpaper.jpg';
+  background-image: url(https://raw.githubusercontent.com/fractohill/CF-Worker-Dir/refs/heads/master/OuterWilds.png);
 }
 
 #nav .item {
